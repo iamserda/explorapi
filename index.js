@@ -23,47 +23,64 @@
 */
 
 async function getAPIs() {
-    const url = "https://api.publicapis.org/entries";
-    const apiRequest = await fetch(url);
-    const data = await apiRequest.json();
-    return data;
+  const url = "https://api.publicapis.org/entries";
+  const apiRequest = await fetch(url);
+  const data = await apiRequest.json();
+  return data;
 }
 
 // ()();
 
 function getAPIhtml(myAPI) {
-    const { API, Description, Auth,
-        HTTPS, Cors, Link, Category } = myAPI;
+  let { API, Description, Auth, HTTPS, Cors, Link, Category } = myAPI;
 
-    const component = `
+  if (!Description) {
+    Description =
+      "No description provided. Please visit the API documents for details.";
+  }
+  if (!Auth) {
+    Auth = "N/A";
+  }
+  if (!HTTPS) {
+    HTTPS = "N/A";
+  } else {
+    HTTPS = "Available";
+  }
+  if (!Cors || Cors === "unknown") {
+    Cors = "N/A";
+  }
+  if (!Category) {
+    Category = "";
+  }
+
+  const component = `
         <div class="api">
-            <h4 class="name"><a href=${ Link }>${ API }(<span class="category">${ Category }</span>)</a></h4>
-            <p  class="description">Description: ${ Description }</p>
+            <h4 class="name"><a href=${Link} target="_blank">${API}(<span class="category">${Category}</span>)</a></h4>
+            <p  class="description">Description: ${Description}</p>
             
-            <p  class="auth">Auth: ${ Auth }</p>
-            <p  class="https">HTTPS: ${ HTTPS }</p>
-            <p  class="cors">CORS: ${ Cors }</p>
+            <p  class="auth">Auth: ${Auth}</p>
+            <p  class="https">HTTPS: ${HTTPS}</p>
+            <p  class="cors">CORS: ${Cors}</p>
         </div>`;
 
-    return component;
+  return component;
 }
 
 function displayAPIs(myAPIs) {
-    const app = document.createElement('div');
-    app.id = "app";
-    app.classList.add("app-grid");
-    document.body.prepend(app);
+  const app = document.createElement("div");
+  app.id = "app";
+  app.classList.add("app-grid");
+  document.body.prepend(app);
 
-    const { entries } = myAPIs;
-    entries.slice(0, 25).forEach(
-        item => {
-            const component = getAPIhtml(item);
-            app.innerHTML += component;
-        }
-    );
-
+  const { entries } = myAPIs;
+  entries.slice(0, 5).forEach((item) => {
+    const component = getAPIhtml(item);
+    app.innerHTML += component;
+  });
 }
 
 getAPIs()
-    .then(data => { displayAPIs(data); })
-    .catch(e => console.log(`Error: ${ e }`));
+  .then((data) => {
+    displayAPIs(data);
+  })
+  .catch((e) => console.log(`Error: ${e}`));

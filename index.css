@@ -1,48 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
 html,
 body {
     margin: 0;
     padding: 0;
-    background-color: #222;
     min-height: 100%;
 }
 
-body {}
+body {
+    background-color: rgb(0, 0, 41);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
 
 /*
 The grid should have 4 rows
 3rem, 1rem, 4rem, 3rem respectively
 and 3 columns each 1/3rd of available width */
 .app-grid {
-    background: white;
+    background: rgba(255, 255, 255, 0.801);
     border-radius: 15px;
     width: 90%;
     min-height: 90vh;
-    max-width: 900px;
-    padding: 0;
+    max-width: 1200px;
+    min-width: 768px;
+    padding: 2em;
     margin: 2em auto;
     display: grid;
     grid-gap: 1em;
-    padding: 1em;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(auto-fit, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .api {
     width: 100%;
+    height: 100%;
     max-width: 250px;
     background: white;
     padding: 0 1em;
     border-radius: 10px;
-    box-shadow: 0 0 5px #22222255;
+    box-shadow: 2px 2px 5px #22222283;
+    margin: 0;
+    align-self: center;
+    justify-self: center;
 }
 
-.name {}
+.api>* {
+    font-size: 0.85rem;
+    font-weight: bolder;
+    border-radius: 4px;
+}
 
-.description {}
+.name {
+    background: rgba(122, 184, 255, 0.205);
+    padding: 0.25em 0.3em;
+    font-size: 1.2rem;
+    text-align: center;
+    font-size: 1.0625rem;
+}
 
-.category {}
+.name:hover {
+    background: rgba(0, 0, 255, 0.253);
+    padding: 0.25em 0.3em;
 
-.auth {}
+}
+
+.description {
+    color: #272727;
+    font-size: 1rem;
+}
+
+.category {
+    background: rgba(0, 0, 255, 0.205);
+    color: white;
+    padding: 0.1em 0.25em;
+    border-radius: 4px;
+}
+
+.auth {
+    border: 1px solid rgba(0, 132, 255, 0.808);
+    padding: 0.5em;
+
+}
 
 .https {}
 
