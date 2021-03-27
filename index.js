@@ -26,27 +26,37 @@ async function getAPIs() {
   const url = "https://api.publicapis.org/entries";
   const apiRequest = await fetch(url);
   const data = await apiRequest.json();
-  console.log(data);
   return data;
 }
 
 function getAPIhtml(myAPI) {
   let { API, Description, Auth, HTTPS, Cors, Link, Category } = myAPI;
+  let httpsElem = `<span class="https">${HTTPS}</span>;`;
+  let authElem = `<span>${Auth}</span>`;
+  let corsElem = `<span class="cors">${Cors}</span>`;
 
   if (!Description) {
     Description =
-      "No description provided. Please visit the API documents for details.";
+      "No description provided. Click API name for more information.";
   }
+
   if (!Auth) {
     Auth = "N/A";
+    authElem = `<span class="auth notavail">${Auth}</span>;`;
   }
+
   if (!HTTPS) {
     HTTPS = "N/A";
+    httpsElem = `<span class="https notavail">${HTTPS}</span>`;
   } else {
     HTTPS = "Available";
+    httpsElem = `<span class="https available">${HTTPS}</span>`;
   }
-  if (!Cors || Cors === "unknown") {
+  if (!Cors || Cors === "unknown" || Cors === "no") {
     Cors = "N/A";
+    corsElem = `<span class="cors notavail">${Cors}</span>`;
+  } else {
+    corsElem = `<span class="cors available">${Cors}</span>`;
   }
   if (!Category) {
     Category = "";
@@ -54,17 +64,17 @@ function getAPIhtml(myAPI) {
 
   const component = `
         <div class="api">
-            <h4 class="name"><a href=${Link} target="_blank">${API}(<span class="category">${Category}</span>)</a></h4>
-            <p  class="description">Description: ${Description}</p>
-            
-            <p  class="auth">Auth: <span class="">${Auth}</span></p>
-            <p  class="https">HTTPS: ${HTTPS}</p>
-            <p  class="cors">CORS: ${Cors}</p>
+            <h4 class="name"><a class="link" href=${Link} target="_blank">${API}<br><span class="category">${Category}</span></a></h4>
+            <p>Description: <br><span>${Description}</span></pDescription:>
+            <p>Auth: ${authElem}</p>
+            <p>HTTPS: ${httpsElem}</p>
+            <p>CORS: ${corsElem}</p>
         </div>`;
 
   return component;
 }
 
+// displays first 100 apis.
 function displayAPIs(myAPIs) {
   const app = document.createElement("div");
   app.id = "app";
@@ -72,7 +82,7 @@ function displayAPIs(myAPIs) {
   document.body.prepend(app);
 
   const { entries } = myAPIs;
-  entries.slice(0, 5).forEach((item) => {
+  entries.slice(0, 200).forEach((item) => {
     app.innerHTML += getAPIhtml(item);
   });
 }
