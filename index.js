@@ -26,10 +26,9 @@ async function getAPIs() {
   const url = "https://api.publicapis.org/entries";
   const apiRequest = await fetch(url);
   const data = await apiRequest.json();
+  console.log(data);
   return data;
 }
-
-// ()();
 
 function getAPIhtml(myAPI) {
   let { API, Description, Auth, HTTPS, Cors, Link, Category } = myAPI;
@@ -58,7 +57,7 @@ function getAPIhtml(myAPI) {
             <h4 class="name"><a href=${Link} target="_blank">${API}(<span class="category">${Category}</span>)</a></h4>
             <p  class="description">Description: ${Description}</p>
             
-            <p  class="auth">Auth: ${Auth}</p>
+            <p  class="auth">Auth: <span class="">${Auth}</span></p>
             <p  class="https">HTTPS: ${HTTPS}</p>
             <p  class="cors">CORS: ${Cors}</p>
         </div>`;
@@ -74,13 +73,10 @@ function displayAPIs(myAPIs) {
 
   const { entries } = myAPIs;
   entries.slice(0, 5).forEach((item) => {
-    const component = getAPIhtml(item);
-    app.innerHTML += component;
+    app.innerHTML += getAPIhtml(item);
   });
 }
 
 getAPIs()
-  .then((data) => {
-    displayAPIs(data);
-  })
+  .then((data) => displayAPIs(data))
   .catch((e) => console.log(`Error: ${e}`));
