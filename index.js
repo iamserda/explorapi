@@ -42,7 +42,7 @@ function getAPIhtml(myAPI) {
 
   if (!Auth) {
     Auth = "N/A";
-    authElem = `<span class="auth notavail">${Auth}</span>;`;
+    authElem = `<span class="auth notavail">${Auth}</span>`;
   }
 
   if (!HTTPS) {
@@ -73,7 +73,11 @@ function getAPIhtml(myAPI) {
 
   return component;
 }
-
+function compareNames(a, b) {
+  if (a > b) {
+    return;
+  }
+}
 // displays first 100 apis.
 function displayAPIs(myAPIs) {
   const app = document.createElement("div");
@@ -82,7 +86,7 @@ function displayAPIs(myAPIs) {
   document.body.prepend(app);
 
   const { entries } = myAPIs;
-  entries.slice(0, 200).forEach((item) => {
+  entries.slice(0, 100).forEach((item) => {
     app.innerHTML += getAPIhtml(item);
   });
 }
