@@ -69,6 +69,7 @@ function getAPIhtml(myAPI) {
             <p class="auth">Auth: ${authElem}</p>
             <p class="https">HTTPS: ${httpsElem}</p>
             <p class="cors">CORS: ${corsElem}</p>
+            <p class="counter"><span>${counter}</span></p>
         </div>`;
 
   return component;
@@ -86,8 +87,11 @@ function displayAPIs(myAPIs) {
   document.body.prepend(app);
 
   const { entries } = myAPIs;
-  entries.slice(0, 100).forEach((item) => {
-    app.innerHTML += getAPIhtml(item);
+  console.log(entries);
+  entries.forEach((item) => {
+    let counter = 0;
+    console.log(++counter, item);
+    // app.innerHTML += getAPIhtml(item, ++counter);
   });
 }
 
