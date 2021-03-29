@@ -65,10 +65,10 @@ function getAPIhtml(myAPI) {
   const component = `
         <div class="api">
             <h4 class="name"><a class="link" href=${Link} target="_blank">${API}<br><span class="category">${Category}</span></a></h4>
-            <p>Description: <br><span>${Description}</span></pDescription:>
-            <p>Auth: ${authElem}</p>
-            <p>HTTPS: ${httpsElem}</p>
-            <p>CORS: ${corsElem}</p>
+            <p class="description">Description:<br><span>${Description}</span></p>
+            <p class="auth">Auth: ${authElem}</p>
+            <p class="https">HTTPS: ${httpsElem}</p>
+            <p class="cors">CORS: ${corsElem}</p>
         </div>`;
 
   return component;
