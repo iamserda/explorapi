@@ -30,21 +30,20 @@ and 3 columns each 1/3rd of available width */
     background: rgb(228, 228, 228);
     border-radius: 15px;
     width: 90%;
-    min-height: 90vh;
-    max-width: 1000px;
+    max-width: 1200px;
     min-width: 500px;
     padding: 2em;
     margin: 2em auto;
     display: grid;
     grid-gap: 1em;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
 }
 
 .api {
     width: 100%;
     height: 100%;
-    max-width: 300px;
+    max-width: 500px;
     background: white;
     padding: 0 1em;
     border-radius: 10px;
@@ -62,7 +61,7 @@ and 3 columns each 1/3rd of available width */
 }
 
 .api>p {
-    padding: 0.5em 0.25em;
+    padding: 0.25em;
     border: 1px solid rgba(0, 132, 255, 0.808);
     font-size: 0.8rem;
     clear: both;
@@ -76,13 +75,14 @@ and 3 columns each 1/3rd of available width */
     font-size: 1.35rem;
     line-height: 1.4;
     border: 1px solid rgba(0, 132, 255, 0.808);
+    margin: 0.5em 0;
 }
 
 .name:hover {
     background: rgba(0, 0, 255, 0.253);
     padding: 0.25em 0.3em;
     color: white;
-    border: 2px solid rgb(0, 0, 255);
+    border: 1px solid rgb(0, 0, 255);
 }
 
 .description {
@@ -90,7 +90,8 @@ and 3 columns each 1/3rd of available width */
     font-size: 0.85rem;
     padding: 0.25em;
     color: rgb(27, 27, 27);
-    line-height: 2;
+    line-height: 1.4;
+    margin: 0.25em 0;
 }
 
 .category {
@@ -136,4 +137,23 @@ a.link:hover {
 .available {
     background: rgba(1, 255, 1, 0.205);
     border: 1px solid rgb(1, 255, 1);
+}
+
+.counter {
+    width: 32px;
+    height: 32px;
+    background: rgba(122, 184, 255, 0.205);
+    margin: 0.75em auto 1em;
+    text-align: center;
+
+}
+
+.counter span {
+    font-size: 1rem;
+
+}
+
+.header {
+    width: 100%;
+    background: white;
 }
