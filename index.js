@@ -26,7 +26,26 @@ async function getAPIs() {
   const url = "https://api.publicapis.org/entries";
   const apiRequest = await fetch(url);
   const data = await apiRequest.json();
-  return data;
+  const { entries } = data;
+
+  entries.sort((api1, api2) => {
+    var apiName1 = api.API.toUpperCase();
+    var apiName2 = api.API.toUpperCase();
+
+    // order remains unchanged.
+    if (apiName1 < apiName2) {
+      return -1;
+    }
+    // sorts api2 before api1. changed.
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal, remain unchanged.
+    return 0;
+  });
+
+  return entries;
 }
 
 function getAPIhtml(myAPI, idNum) {

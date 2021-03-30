@@ -156,4 +156,15 @@ a.link:hover {
 .header {
     width: 100%;
     background: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0 2em;
+}
+
+.brand {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-transform: uppercase;
 }
