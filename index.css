@@ -11,6 +11,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100%;
+    min-width: 375px;
 }
 
 body {
@@ -27,23 +28,24 @@ The grid should have 4 rows
 3rem, 1rem, 4rem, 3rem respectively
 and 3 columns each 1/3rd of available width */
 .app-grid {
-    background: rgb(228, 228, 228);
+    background: rgba(255, 255, 255, 0.904);
     border-radius: 15px;
     width: 90%;
     max-width: 1200px;
-    min-width: 500px;
+    min-width: 300px;
     padding: 2em;
     margin: 2em auto;
     display: grid;
     grid-gap: 1em;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: auto;
+    align-items: baseline;
 }
 
 .api {
     width: 100%;
     height: 100%;
-    max-width: 500px;
+    max-width: 400px;
     background: white;
     padding: 0 1em;
     border-radius: 10px;
@@ -51,9 +53,14 @@ and 3 columns each 1/3rd of available width */
     margin: 0;
     align-self: center;
     justify-self: center;
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
 }
 
 .api>* {
+    width: 90%;
     font-size: 0.85rem;
     font-weight: bolder;
     border-radius: 4px;
@@ -62,36 +69,46 @@ and 3 columns each 1/3rd of available width */
 
 .api>p {
     padding: 0.25em;
-    border: 1px solid rgba(0, 132, 255, 0.808);
+    border: 1px solid rgba(201, 201, 201, 0.808);
     font-size: 0.8rem;
     clear: both;
+
 }
 
 .name {
-    background: rgba(122, 184, 255, 0.205);
+    background: rgba(26, 62, 99, 0.205);
     padding: 0.25em 0.3em;
     font-size: 1.2rem;
     text-align: center;
     font-size: 1.35rem;
     line-height: 1.4;
-    border: 1px solid rgba(0, 132, 255, 0.808);
+    border: 1px solid rgba(180, 180, 180, 0.808);
     margin: 0.5em 0;
 }
 
 .name:hover {
-    background: rgba(0, 0, 255, 0.253);
+    background: rgba(122, 184, 255, 0.205);
+    border: 1px solid rgba(0, 132, 255, 0.808);
     padding: 0.25em 0.3em;
-    color: white;
-    border: 1px solid rgb(0, 0, 255);
+}
+
+a.link {
+    display: block;
+    color: rgb(64, 75, 83);
+}
+
+a.link:hover {
+    color: rgb(0, 47, 90);
 }
 
 .description {
-    color: #272727;
+    min-height: 48px;
+    color: #5c7a9c;
     font-size: 0.85rem;
     padding: 0.25em;
-    color: rgb(27, 27, 27);
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0.25em 0;
+    text-align: center;
 }
 
 .category {
@@ -108,25 +125,19 @@ span.cors {
     padding: 0.25em;
     border-radius: 4px;
     float: right;
+    margin: 0;
 }
 
 p.auth,
 p.https,
 p.cors {
-    padding: 0.5em;
+    padding: 0.25em 0.25em 0 0.53em;
     border-radius: 4px;
-    margin: 0.25em 0;
+    margin: 0.25em 0 0;
     overflow: auto;
 }
 
-a.link {
-    display: block;
-    color: rgb(27, 27, 27)
-}
 
-a.link:hover {
-    color: whitesmoke;
-}
 
 .notavail {
     color: rgb(121, 0, 0);
@@ -140,31 +151,108 @@ a.link:hover {
 }
 
 .counter {
-    width: 32px;
     height: 32px;
     background: rgba(122, 184, 255, 0.205);
-    margin: 0.75em auto 1em;
-    text-align: center;
+    margin: 0.5em auto 0.5em;
+    width: fit-content;
 
 }
 
 .counter span {
-    font-size: 1rem;
-
+    min-width: 32px;
+    width: fit-content;
+    font-size: 0.8rem;
+    display: block;
+    padding: 0;
+    margin: 0.25em;
+    text-align: center;
 }
 
 .header {
-    width: 100%;
+    min-width: 100%;
     background: white;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    padding: 0 2em;
 }
 
 .brand {
     font-family: Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1.25rem;
-    text-transform: uppercase;
+    text-align: center;
+    text-transform: lowercase;
+    padding: 0.25em 1em 0;
+    background: rgba(26, 62, 99, 0.205);
+    color: rgb(56, 56, 56);
+    cursor: pointer;
+    min-width: 100px;
+    max-width: 400px;
+    flex: 1 1 auto;
+}
+
+.nav {
+    flex: 1 1 300px;
+    margin: 0;
+    width: 100%;
+    background: black;
+}
+
+.container {
+    padding: 0.25em;
+}
+
+.brand:hover {
+    color: white;
+
+}
+
+.nav .container {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    background: black;
+}
+
+.nav-links {
+    color: white;
+    list-style: none;
+    margin: 0.125em 0.5em;
+}
+
+.nav-links a {
+    color: white;
+}
+
+.nav-links a:hover,
+active {
+    color: rgb(128, 155, 190);
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 0.25em;
+    }
+
+    .brand {
+        min-width: 100%;
+        font-size: 2rem;
+        text-align: center;
+        padding: 0.25em;
+
+        display: block;
+    }
+
+    .nav,
+    .container {
+        width: 100%;
+    }
+
+    .nav-links {
+        padding: 0.5em;
+    }
 }

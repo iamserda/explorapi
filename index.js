@@ -29,15 +29,15 @@ async function getAPIs() {
   const { entries } = data;
 
   entries.sort((api1, api2) => {
-    var apiName1 = api.API.toUpperCase();
-    var apiName2 = api.API.toUpperCase();
+    var apiName1 = api1.API.toUpperCase();
+    var apiName2 = api2.API.toUpperCase();
 
     // order remains unchanged.
     if (apiName1 < apiName2) {
       return -1;
     }
     // sorts api2 before api1. changed.
-    if (nameA > nameB) {
+    if (apiName1 > apiName2) {
       return 1;
     }
 
@@ -45,6 +45,7 @@ async function getAPIs() {
     return 0;
   });
 
+  // returning a sorted array of objects.
   return entries;
 }
 
@@ -60,23 +61,26 @@ function getAPIhtml(myAPI, idNum) {
   }
 
   if (!Auth) {
-    Auth = "N/A";
+    Auth = "👎🏿 N/A";
     authElem = `<span class="auth notavail">${Auth}</span>`;
+  } else {
+    authElem = `<span class="auth available">👍🏾 ${Auth}</span>`;
   }
 
   if (!HTTPS) {
-    HTTPS = "N/A";
+    HTTPS = "👎🏿 N/A";
     httpsElem = `<span class="https notavail">${HTTPS}</span>`;
   } else {
     HTTPS = "Available";
-    httpsElem = `<span class="https available">${HTTPS}</span>`;
+    httpsElem = `<span class="https available">👍🏾 ${HTTPS}</span>`;
   }
   if (!Cors || Cors === "unknown" || Cors === "no") {
-    Cors = "N/A";
+    Cors = "👎🏿 N/A";
     corsElem = `<span class="cors notavail">${Cors}</span>`;
   } else {
-    corsElem = `<span class="cors available">${Cors}</span>`;
+    corsElem = `<span class="cors available">👍🏿 ${Cors}</span>`;
   }
+
   if (!Category) {
     Category = "";
   }
@@ -87,8 +91,7 @@ function getAPIhtml(myAPI, idNum) {
             <a class="link" href=${Link} target="_blank">${API}
             <br><span class="category">${Category}</span></a></h4>
 
-          <p class="description">Description:
-            <br><span>${Description}</span></p>
+          <p class="description">${Description}</p>
           
           <p class="auth">Auth: ${authElem}</p>
           <p class="https">HTTPS: ${httpsElem}</p>
@@ -99,22 +102,17 @@ function getAPIhtml(myAPI, idNum) {
   return component;
 }
 
-function compareNames(a, b) {
-  if (a > b) {
-    return;
-  }
-}
-
 function appHeader() {
   const header = `
     <header class="header container">
-      <span class="brand">uiforapi.co</span>
+      <a href="/" 
+          target="_blank" class="brand">explorAPI</a>
       <nav class="nav">
         <ul class="container">
           <li class="nav-links"><a href="/">home</a></li>
-          <li class="nav-links"><a href="#">p</a></li>
-          <li class="nav-links"><a href="#">home</a></li>
-          <li class="nav-links"><a href="#">home</a></li>
+          <li class="nav-links"><a href="https://github.com/iamserda/publicapis" target="_blank">onGH</a></li>
+          <li class="nav-links"><a href="https://api.publicapis.org" target="_blank">PublicAPI</a></li>
+          <li class="nav-links"><a href="https://iamserda.com" target="_blank">iamserda</a></li>
         </ul>
       </nav>
     </header>
@@ -140,11 +138,18 @@ function appFooter() {
 
   return footer;
 }
-
+function newSearchBar() {
+  const search = document.createElement("input");
+  search.id = "searchBar";
+  search.className.add("search");
+  return search;
+}
 // displays all object within the myAPIs array.
-function displayAPIs(myAPIs) {
+// this could be decoupled further.
+function displayAPIs(entries) {
   let counter = 0;
-  const { entries } = myAPIs;
+  const root = document.getElementById("root");
+
   const app = document.createElement("div");
   let components = "";
 
@@ -152,7 +157,8 @@ function displayAPIs(myAPIs) {
   app.classList.add("app-grid");
 
   //adding a header to app
-  document.body.innerHTML += appHeader();
+  root.innerHTML += appHeader();
+  root.appendChild(app);
   document
     .getElementsByTagName("header")
     .item(0)
@@ -162,6 +168,7 @@ function displayAPIs(myAPIs) {
     // to limit strain on the browser and DOM rendering
     // I have accumlated the components here.
     // Below, I will make a single DOM insertion.
+    // console.log(item, ++counter);
     components += getAPIhtml(item, ++counter);
   });
 
