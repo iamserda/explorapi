@@ -174,6 +174,11 @@ p.cors {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.589);
 }
 
 .brand {
@@ -231,6 +236,48 @@ p.cors {
 .nav-links a:hover,
 active {
     color: rgb(128, 155, 190);
+}
+
+.footer {
+    background: #c9dcee;
+    min-width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.589);
+    padding: 0.5em 0 0;
+}
+
+.footer p {
+    padding: 0.5em;
+    margin: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.089);
+    color: white;
+}
+
+.footer a {
+    color: white;
+    padding: 0.125em;
+    background: rgba(255, 255, 255, 0.568);
+    border-radius: 4px;
+    margin: 0.25em
+}
+
+.footer>p:nth-child(3) {
+    color: rgb(64, 75, 83);
+}
+
+.footer a:hover,
+active {
+    border: white;
+    color: rgb(0, 47, 90);
 }
 
 @media (max-width: 600px) {

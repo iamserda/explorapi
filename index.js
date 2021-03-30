@@ -128,11 +128,9 @@ function appFooter() {
   <footer class="footer">
       <p>Visit the project's repo 
           <a href="https://github.com/davemachado/public-api">here</a></p>
-      <p>Many thanks to <a href="https://github.com/davemachado" 
-          target="_blank">Dave Machado</a> and the contributers at: 
-          <a href="https://api.publicapis.org/" 
-          target="_blank>publicapis.org</a></p>
-      <p>🇭🇹 Made with ❤️ in Inwood, NYC. 🇭🇹</p>
+      <p>Many thanks to <a href="https://github.com/davemachado" target="_blank">Dave Machado</a> and the contributers at: <a href="https://api.publicapis.org" 
+          target="_blank">publicapis.org</a></p>
+      <p> Made with ❤️ in Inwood, NYC. 🇭🇹</p>
   </footer>
   `;
 
@@ -173,6 +171,7 @@ function displayAPIs(entries) {
   });
 
   app.innerHTML += components;
+  root.innerHTML += appFooter();
 }
 
 getAPIs()
