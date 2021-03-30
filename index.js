@@ -111,7 +111,7 @@ function appHeader() {
         <ul class="container">
           <li class="nav-links"><a href="/">home</a></li>
           <li class="nav-links"><a href="https://github.com/iamserda/publicapis" target="_blank">onGH</a></li>
-          <li class="nav-links"><a href="https://api.publicapis.org" target="_blank">PublicAPI</a></li>
+          <li class="nav-links"><a href="https://api.publicapis.org" target="_blank">PublicAPIs.org</a></li>
           <li class="nav-links"><a href="https://iamserda.com" target="_blank">iamserda</a></li>
         </ul>
       </nav>

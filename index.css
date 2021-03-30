@@ -295,12 +295,25 @@ active {
     }
 
     .nav,
-    .container {
+    .nav .container {
         width: 100%;
     }
 
+    .nav .container {
+        width: 80%;
+    }
+
     .nav-links {
-        font-size: 0.8rem;
-        padding: 0.5em;
+
+        padding: 0.125em;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+
+    .footer p:nth-child(1),
+    .footer p:nth-child(2) {
+        display: none;
     }
 }
