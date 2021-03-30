@@ -3,7 +3,7 @@
 ## What is it?
 An unoffical landing page for the Public APIs <a href="https://github.com/davemachado/publicapis/">Repo</a> by Dave Machado and other contributors. Each api entry is displayed as a card it's name(link to docs), a description, and info about authentication requirements, CORS and HTTPS support.
 
-### Issue:
+### Issues:
 Currently, I am displaying the entire project at once. That's over 500 cards on one page. Sorry, but I will think of either only displaying 50 randomly with search capabilities, display the most popular ones based on visitors click rate, or the good old pages. As of right now, I am not sure pages will improve this by much so I will leave it as is for now, until I come up with a better solutions. My apologies, if this turns out to be inconvenient.
 
 ## Where is the Link
