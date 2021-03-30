@@ -106,7 +106,7 @@ function appHeader() {
   const header = `
     <header class="header container">
       <a href="/" 
-          target="_blank" class="brand">explorAPI</a>
+          target="_blank" class="brand">explorapi</a>
       <nav class="nav">
         <ul class="container">
           <li class="nav-links"><a href="/">home</a></li>
