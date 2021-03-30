@@ -147,15 +147,15 @@ p.cors {
     border: 1px solid rgb(1, 255, 1);
 }
 
-.counter {
+.api .counter {
     height: 32px;
     background: rgba(122, 184, 255, 0.205);
     margin: 0.5em auto 0.5em;
     width: fit-content;
-
+    padding: 0;
 }
 
-.counter span {
+.api .counter span {
     min-width: 32px;
     width: fit-content;
     font-size: 0.8rem;
