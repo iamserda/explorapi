@@ -6,7 +6,7 @@ An unoffical landing page for the Public APIs <a href="https://github.com/davema
 ## Many thanks to <a href="https://github.com/davemachado" target="_blank">Dave Machado</a> and the ***contributers*** at: <a href="https://api.publicapis.org" target="_blank">api.publicapis.org</a>
 
 ### Where is the Link
-<a href="https://iamserda.github.io/publicapis/" target="_blank">exploreAPIs</a>
+<a href="https://iamserda.github.io/explorapi/" target="_blank">exploreAPIs</a>
 
 ### Issues:
 Currently, I am displaying the entire project at once. That's over 500 cards on one page. Sorry, but I will think of either only displaying 50 randomly with search capabilities, display the most popular ones based on visitors click rate, or the good old pages. As of right now, I am not sure pages will improve this by much so I will leave it as is for now, until I come up with a better solutions. My apologies, if this turns out to be inconvenient.
