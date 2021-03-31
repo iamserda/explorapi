@@ -7,7 +7,7 @@ An unoffical landing page for the Public APIs <a href="https://github.com/davema
 Many thanks to ***<a href="https://github.com/davemachado" target="_blank">Dave Machado</a>*** and the ***contributers*** at: <a href="https://api.publicapis.org" target="_blank">api.publicapis.org</a>.
 
 ### Link to explorapi:
-<a href="https://iamserda.github.io/explorapi/" target="_blank">exploreAPIs</a>
+<a href="https://iamserda.github.io/explorapi/" target="_blank">explorapi</a>
 
 ### Issues:
 Currently, I am displaying all of the resources on 1 page. That's over 500 cards.
