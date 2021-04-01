@@ -231,7 +231,7 @@ p.cors {
 }
 
 .nav-links a:hover,
-active {
+.nav-links a:active {
     color: rgb(128, 155, 190);
 }
 
