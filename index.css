@@ -260,11 +260,14 @@ active {
 }
 
 .footer a {
-    color: white;
-    padding: 0.125em;
+    display: inline-block;
+    color: rgb(0, 47, 90);
+    padding: 0.25em;
     background: rgba(255, 255, 255, 0.568);
     border-radius: 4px;
-    margin: 0.25em
+    margin: 0.125em;
+    transform: scale(0.8);
+    transition: transform 500ms, color 500ms;
 }
 
 .footer>p:nth-child(3) {
@@ -272,9 +275,10 @@ active {
 }
 
 .footer a:hover,
-active {
+.footer a:active {
+    transform: scale(1);
     border: white;
-    color: rgb(0, 47, 90);
+    color: rgb(255, 110, 110);
 }
 
 @media (max-width: 600px) {
