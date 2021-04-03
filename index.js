@@ -137,6 +137,7 @@ function appFooter() {
 
   return footer;
 }
+
 function newSearchBar() {
   const search = document.createElement("input");
   search.id = "searchBar";
