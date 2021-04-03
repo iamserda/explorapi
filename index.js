@@ -105,11 +105,10 @@ function getAPIhtml(myAPI, idNum) {
 function appHeader() {
   const header = `
     <header class="header container">
-      <a href="/" 
-          target="_blank" class="brand">explorapi</a>
+      <a href="/explorapi/" class="brand">explorapi</a>
       <nav class="nav">
         <ul class="container">
-          <li class="nav-links"><a href="index.html">home</a></li>
+          <li class="nav-links"><a href="/explorapi/">home</a></li>
           <li class="nav-links"><a href="https://github.com/iamserda/publicapis" target="_blank">onGH</a></li>
           <li class="nav-links"><a href="https://api.publicapis.org" target="_blank">PublicAPIs</a></li>
           <li class="nav-links"><a href="https://iamserda.github.io" target="_blank">iamserda</a></li>
@@ -127,8 +126,10 @@ function appFooter() {
   const footer = `
   <footer class="footer">
       <p>Visit the project's repo 
-          <a href="https://github.com/davemachado/public-api">here</a></p>
-      <p>Many thanks to <a href="https://github.com/davemachado" target="_blank">Dave Machado</a> and the contributers at: <a href="https://api.publicapis.org" 
+          <a href="https://github.com/davemachado/public-api">here</a>. 
+          Many thanks to <a href="https://github.com/davemachado" 
+          target="_blank">Dave Machado</a> and the contributers at: 
+          <a href="https://api.publicapis.org" 
           target="_blank">publicapis.org</a></p>
       <p> Made with ❤️ in Inwood, NYC. 🇭🇹</p>
   </footer>
