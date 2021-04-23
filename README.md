@@ -20,7 +20,7 @@ In order to save you some time having to reload the pages, I will leave it as is
 - and much more ...
 
 ### Motivation:
-I am a "opensource-taught" developer. This is was part of project from the Frontend Career Path on <a href="https://scrimba.com" target="_blank">SCRIMBA</a>.
+I am an opensource-taught developer. This is was part of project from the Frontend Career Path on <a href="https://scrimba.com" target="_blank">SCRIMBA</a>.
 
 ### sources and resources:
 GitHub repo for <a href="https://github.com/davemachado/public-api">api.publicapis.org</a>.
