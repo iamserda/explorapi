@@ -27,6 +27,7 @@ async function getAPIs() {
   return entries;
 }
 
+// creates component UI for each API to be displayed.
 function getAPIhtml(myAPI, idNum) {
   let {
     API,
@@ -45,7 +46,8 @@ function getAPIhtml(myAPI, idNum) {
     Description = `No description provided. 
       Click API name for more information.`;
   }
-
+  // adds emojies to the UI to help the user quickly see whether or not,
+  // a given feature is supported. For example CORS (thumb up) means supported.
   if (!Auth) {
     Auth = "👎🏿 N/A";
     authElem = `<span class="auth notavail">${Auth}</span>`;
