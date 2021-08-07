@@ -1,4 +1,4 @@
-# explorapi aka exploreAPIs aka API PIBLIK
+# exploreAPI
 
 ## What is it?
 An unoffical landing page for the Public APIs <a href="https://github.com/davemachado/publicapis/">Repo</a> by Dave Machado and other contributors. Each api entry is displayed as a card it's name(link to docs), a description, and info about authentication requirements, CORS and HTTPS support.
