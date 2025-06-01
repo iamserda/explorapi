@@ -1,33 +1,33 @@
 async function getAPIs() {
-  const url = "https://api.publicapis.org/entries";
-  const apiRequest = await fetch(url);
-  const data = await apiRequest.json();
-  const {
-    entries
-  } = data;
-
-  entries.sort((api1, api2) => {
-    var apiName1 = api1.API.toUpperCase();
-    var apiName2 = api2.API.toUpperCase();
-
-    // order remains unchanged.
-    if (apiName1 < apiName2) {
-      return -1;
+  const url = "https://raw.githubusercontent.com/public-apis-dev/public-apis/main/db/resources.json";
+    const apiRequest = await fetch(url);
+    if(!apiRequest.ok){
+      apiRequest = await fetch("./data.json");
     }
-    // sorts api2 before api1. changed.
-    if (apiName1 > apiName2) {
-      return 1;
-    }
-
-    // names must be equal, remain unchanged.
-    return 0;
-  });
-
-  // returning a sorted array of objects.
-  return entries;
+    const data = await apiRequest.json();
+    const {entries} = data;
+    entries.sort((api1, api2) => {
+      var apiName1 = api1.API.toUpperCase();
+      var apiName2 = api2.API.toUpperCase();
+      
+      // order remains unchanged.
+      if (apiName1 < apiName2) {
+        return -1;
+      }
+      // sorts api2 before api1. changed.
+      if (apiName1 > apiName2) {
+        return 1;
+      }
+      
+      // names must be equal, remain unchanged.
+      return 0;
+    });
+    
+    // returning a sorted array of objects.
+    return entries;
 }
 
-// creates component UI for each API to be displayed.
+// creates UIComponent for each API to be displayed.
 function getAPIhtml(myAPI, idNum) {
   let {
     API,
