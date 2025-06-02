@@ -1,14 +1,13 @@
 async function getAPIs() {
-  const url = "https://raw.githubusercontent.com/public-apis-dev/public-apis/main/db/resources.json";
+  const url = "./data.json";
     const apiRequest = await fetch(url);
-    if(!apiRequest.ok){
-      apiRequest = await fetch("./data.json");
-    }
     const data = await apiRequest.json();
     const {entries} = data;
+    
+    // sorting the list in ascending order.
     entries.sort((api1, api2) => {
-      var apiName1 = api1.API.toUpperCase();
-      var apiName2 = api2.API.toUpperCase();
+      const apiName1 = api1.API.toUpperCase();
+      const apiName2 = api2.API.toUpperCase();
       
       // order remains unchanged.
       if (apiName1 < apiName2) {
