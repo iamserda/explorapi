@@ -45,6 +45,8 @@ function getAPIhtml(myAPI, idNum) {
     Description = `No description provided. 
       Click API name for more information.`;
   }
+  Description = Description.length > 100 ? Description.slice(0,97)+"..." : Description;
+
   // adds emojies to the UI to help the user quickly see whether or not,
   // a given feature is supported. For example CORS (thumb up) means supported.
   if (!Auth) {
@@ -89,41 +91,31 @@ function getAPIhtml(myAPI, idNum) {
   return component;
 }
 
-function appHeader() {
-  const header = `
-    <header class="header container">
-      <a href="/explorapi/" class="brand">explorapi</a>
-      <nav class="nav">
-        <ul class="container">
-          <li class="nav-links"><a href="/explorapi/">home</a></li>
-          <li class="nav-links"><a href="https://github.com/iamserda/publicapis" target="_blank">onGH</a></li>
-          <li class="nav-links"><a href="https://api.publicapis.org" target="_blank">PublicAPIs</a></li>
-          <li class="nav-links"><a href="https://iamserda.github.io" target="_blank">iamserda</a></li>
-        </ul>
-      </nav>
-    </header>
-  `;
+// function appHeader() {
+//   const header = `
+//     <header class="header container">
+//       <a href="/explorapi/" class="brand">explorapi</a>
+//       <nav class="nav">
+//         <ul class="container">
+//           <li class="nav-links"><a href="/explorapi/">home</a></li>
+//           <li class="nav-links"><a href="https://github.com/iamserda/publicapis" target="_blank">onGH</a></li>
+//           <li class="nav-links"><a href="https://api.publicapis.org" target="_blank">PublicAPIs</a></li>
+//           <li class="nav-links"><a href="https://iamserda.github.io" target="_blank">iamserda</a></li>
+//         </ul>
+//       </nav>
+//     </header>
+//   `;
 
-  return header;
-}
+//   return header;
+// }
 
-function appFooter() {
-  // using HTML inside of JS is awful. I know.
-  // Creating DOM elements in JS can become unrully, so I do this.
-  const footer = `
-  <footer class="footer">
-      <p>Visit the project's repo 
-          <a href="https://github.com/davemachado/public-api">here</a>. 
-          Many thanks to <a href="https://github.com/davemachado" 
-          target="_blank">Dave Machado</a> and the contributers at: 
-          <a href="https://api.publicapis.org" 
-          target="_blank">publicapis.org</a></p>
-      <p> Made with ❤️ in Inwood, NYC. 🇭🇹</p>
-  </footer>
-  `;
+// function appFooter() {
+//   // using HTML inside of JS is awful. I know.
+//   // Creating DOM elements in JS can become unrully, so I do this.
+//   const footer = `<footer class="footer"><p>Made with ❤️ in Inwood, 🗽NYC.</p></footer>`;
 
-  return footer;
-}
+//   return footer;
+// }
 
 function newSearchBar() {
   const search = document.createElement("input");
@@ -144,7 +136,7 @@ function displayAPIs(entries) {
   app.classList.add("app-grid");
 
   //adding a header to app
-  root.innerHTML += appHeader();
+  // root.innerHTML += appHeader();
   root.appendChild(app);
   document
     .getElementsByTagName("header")
@@ -160,7 +152,7 @@ function displayAPIs(entries) {
   });
 
   app.innerHTML += components;
-  root.innerHTML += appFooter();
+  // root.innerHTML += appFooter();
 }
 
 getAPIs()
