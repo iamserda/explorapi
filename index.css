@@ -69,7 +69,7 @@ and 3 columns each 1/3rd of available width */
 }
 
 .api>p {
-    padding: 1em 0.25em;
+    padding: 0.5em;
     border: 1px solid rgba(201, 201, 201, 0.808);
     font-size: 0.75rem;
     clear: both;
@@ -78,9 +78,8 @@ and 3 columns each 1/3rd of available width */
 .name {
     background: rgba(26, 62, 99, 0.205);
     padding: 0.25em 0.3em;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     text-align: center;
-    font-size: 1.35rem;
     line-height: 1.4;
     border: 1px solid rgba(180, 180, 180, 0.808);
     margin: 0.5em 0;
