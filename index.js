@@ -1,42 +1,34 @@
 async function getAPIs() {
   const url = "./data.json";
-    const apiRequest = await fetch(url);
-    const data = await apiRequest.json();
-    const {entries} = data;
-    
-    // sorting the list in ascending order.
-    entries.sort((api1, api2) => {
-      const apiName1 = api1.API.toUpperCase();
-      const apiName2 = api2.API.toUpperCase();
-      
-      // order remains unchanged.
-      if (apiName1 < apiName2) {
-        return -1;
-      }
-      // sorts api2 before api1. changed.
-      if (apiName1 > apiName2) {
-        return 1;
-      }
-      
-      // names must be equal, remain unchanged.
-      return 0;
-    });
-    
-    // returning a sorted array of objects.
-    return entries;
+  const apiRequest = await fetch(url);
+  const data = await apiRequest.json();
+  const { entries } = data;
+
+  // sorting the list in ascending order.
+  entries.sort((api1, api2) => {
+    const apiName1 = api1.API.toUpperCase();
+    const apiName2 = api2.API.toUpperCase();
+
+    // order remains unchanged.
+    if (apiName1 < apiName2) {
+      return -1;
+    }
+    // sorts api2 before api1. changed.
+    if (apiName1 > apiName2) {
+      return 1;
+    }
+
+    // names must be equal, remain unchanged.
+    return 0;
+  });
+
+  // returning a sorted array of objects.
+  return entries;
 }
 
 // creates UIComponent for each API to be displayed.
 function getAPIhtml(myAPI, idNum) {
-  let {
-    API,
-    Description,
-    Auth,
-    HTTPS,
-    Cors,
-    Link,
-    Category
-  } = myAPI;
+  let { API, Description, Auth, HTTPS, Cors, Link, Category } = myAPI;
   let httpsElem = `<span class="https">${HTTPS}</span>;`;
   let authElem = `<span>${Auth}</span>`;
   let corsElem = `<span class="cors">${Cors}</span>`;
@@ -45,7 +37,8 @@ function getAPIhtml(myAPI, idNum) {
     Description = `No description provided. 
       Click API name for more information.`;
   }
-  Description = Description.length > 100 ? Description.slice(0,97)+"..." : Description;
+  Description =
+    Description.length > 100 ? Description.slice(0, 97) + "..." : Description;
 
   // adds emojies to the UI to help the user quickly see whether or not,
   // a given feature is supported. For example CORS (thumb up) means supported.
